@@ -84,10 +84,12 @@ class Heart:
 
     def calc(self, frame):
         calc_position = self.calc_position
-        ratio = 10 * sin(frame / 10 * pi)
+        wave = sin(frame / 10 * pi)
+        halo_wave = wave * wave
+        ratio = 10 * wave
         random_halo = self.random_halo
-        halo_radius = int(4 + 6 * (1 + sin(frame / 10 * pi)))
-        halo_number = int(3000 + 4000 * abs(sin(frame / 10 * pi) ** 2))
+        halo_radius = int(8 + 36 * halo_wave)
+        halo_number = int(3000 + 4000 * halo_wave)
         all_points = []
 
         # halo
